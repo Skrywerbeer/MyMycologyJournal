@@ -13,7 +13,7 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-
+	
 	h1 {
 		margin-left: 1em;
 	}
@@ -106,6 +106,7 @@ div.entry p {
 
 div.entry img {
 	width: 100%;
+	cursor: zoom-in;
 }
 
 div.collage {
@@ -119,4 +120,34 @@ div.collage {
 	/* width: 100px; */
 	width: 100%;
 
+}
+
+.viewerControl {
+	width: 5vw;
+	aspect-ratio: 1 / 1;
+	border: 2px solid #efefef88;
+	border-radius: 4px;;
+	background: #33333333;
+	color: #efefef88;
+	transition: background 300ms, color 300ms;
+}
+.viewerControl[slot="prevButton"] {
+	margin-left: 5vw;
+	margin-right: 2vw;
+}
+.viewerControl[slot="nextButton"] {
+	margin-left: 2vw
+	margin-right: 5vw;
+}
+.viewerControl[slot="closeButton"] {
+	height: 5vh;
+	width: 5vh;
+}
+.viewerControl:hover {
+	background: #ffffff88;
+	color: #333333;
+}
+image-viewer::part(image) {
+	width: 60vw;
+	filter: drop-shadow(0px 10px 10px);
 }

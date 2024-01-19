@@ -27,7 +27,7 @@ color: white;
 </style>
 
 <slot name="prevButton"></slot>
-<img src=""></img>
+<img src="" part="image"></img>
 <slot name="nextButton"></slot>
 <slot name="closeButton"><p>❌</p></slot>
 `;
@@ -88,7 +88,22 @@ class ImageViewer extends HTMLElement {
         document.addEventListener("keyup", this.escHandler);
     }
     openAt(index) {
-        this.index = index;
+        console.log(`open at: ${index}`);
+        if (!index)
+            throw new Error(`image-viewer: Index (${index})`);
+        if (typeof index === "number") {
+            if ((index < 0) || (index > (this.srcArray.length - 1)))
+                throw new Error(`image-viewer: Index (${index})out of bounds.`);
+            this.index = index;
+        }
+        else if (typeof index === "string") {
+            const indexOf = this.srcArray.indexOf(index);
+            if (indexOf === -1)
+                throw new Error(`image-viewer: Could not find (${index}) in srcList`);
+            this.index = indexOf;
+            this.current();
+            this.open();
+        }
     }
     close() {
         this.style.visibility = "hidden";
@@ -115,10 +130,11 @@ class ImageViewer extends HTMLElement {
         this.setImage(this.srcArray[this.index]);
     }
     setImage(url) {
-        this.shadowRoot.querySelector("img").setAttribute("src", url);
+        ((this.shadowRoot).querySelector("img")).src = url;
     }
     parseSrcListAttr() {
-        this.srcArray = this.getAttribute("srcList").match(/([\/\.0-9A-Za-z_])+.jpg/g);
+        this.srcArray = (this.getAttribute("srcList"))
+            .match(/([\/\.0-9A-Za-z_])+.jpg/g);
     }
     escHandler = (event) => {
         if (event.key === "Escape")
@@ -126,5 +142,6 @@ class ImageViewer extends HTMLElement {
     };
     srcArray = new Array();
     index = 0;
+    _internals;
 }
 customElements.define("image-viewer", ImageViewer);

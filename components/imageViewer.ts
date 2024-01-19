@@ -31,7 +31,7 @@ color: white;
 <slot name="closeButton"><p>❌</p></slot>
 `
 
-class ImageViewer extends HTMLElement {
+export class ImageViewer extends HTMLElement {
 	static observedAttributes = ["srcList", "circular"];
 	constructor() {
 		super();

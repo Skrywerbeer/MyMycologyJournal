@@ -136,8 +136,8 @@ export class ImageViewer extends HTMLElement {
 		((this.shadowRoot!).querySelector("img")!).src = url;
 	}
 	private parseSrcListAttr(): void {
-		this.srcArray = (this.getAttribute("srcList")!)
-							.match(/([\/\.0-9A-Za-z_])+.jpg/g);
+		this.srcArray = ((this.getAttribute("srcList")!) ?? "")
+							.match(/([\/\.0-9A-Za-z_])+.jpg/g) ?? [];
 	}
 	private escHandler = (event: KeyboardEvent) => {
 		if (event.key === "Escape")

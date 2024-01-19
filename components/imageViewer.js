@@ -3,7 +3,7 @@ ImageViewerTemplate.innerHTML = `
 <style>
   :host {
 	  display: flex;
-	  position: absolute;
+	  position: fixed;
 	  width: 100vw;
 	  height: 100vh;
 	  justify-content: space-around;

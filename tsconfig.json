@@ -12,5 +12,6 @@
 	},
 	"files": [
 		"components/imageViewer.ts",
+		"forays/viewerInit.ts",
 	]
 }

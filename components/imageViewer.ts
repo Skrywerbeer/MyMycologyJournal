@@ -26,7 +26,7 @@ color: white;
 </style>
 
 <slot name="prevButton"></slot>
-<img src="" part="image"></img>
+<img src="" alt="" part="image"></img>
 <slot name="nextButton"></slot>
 <slot name="closeButton"><p>❌</p></slot>
 `

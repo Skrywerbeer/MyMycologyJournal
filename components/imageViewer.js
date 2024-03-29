@@ -64,13 +64,6 @@ export class ImageViewer extends HTMLElement {
                 break;
         }
     }
-    globImageSrcs() {
-        const ret = new Array();
-        for (const img of document.querySelectorAll("img"))
-            ret.push(img.src);
-        return ret;
-        ;
-    }
     get srcList() {
         return this.getAttribute("srcList");
     }

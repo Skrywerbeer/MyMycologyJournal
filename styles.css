@@ -13,14 +13,36 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+	height: 100vh;
 	
 	h1 {
 		margin-left: 1em;
 	}
-
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2vh;
+	}
 	p {
 		margin-left: 3em;
-		margin-right: 6em;
+		margin-right: 33vw;
+	}
+	@media (max-width: 680px) {
+		p {
+			margin-right: 6em;
+		}
+	}
+	figure {
+		display: flex;
+		flex-direction: row;
+		spacing: 2px;
+		border: 1px solid black;
+
+		img {
+			width: 10vw;
+			
+		}
 	}
 }
 
@@ -79,18 +101,6 @@ header {
 		}
 	}
 }
-
-body {
-	height: 100vh;
-
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2vh;
-	}
-}
-
 
 /* mobile text above images, desktop text to the left of images. */
 

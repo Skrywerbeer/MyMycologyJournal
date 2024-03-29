@@ -1,0 +1,1 @@
+for pic in $(ls); do echo "resizing: $pic"; magick $pic -set 'filename:base' '%[basename]' -resize 10% '%[filename:base]-thumb.jpg'; done;
